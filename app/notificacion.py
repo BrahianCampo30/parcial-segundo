@@ -1,16 +1,14 @@
-from aplicacion import Aplicacion
-from celular import Celular
-from correo import Correo
+from .correo import Correo
+from .celular import Celular
+from .whatsapp import whatsapp
 
 
 class Notificacion:
-    def __init__(self):
-        self.correo = Correo()
-        self.celular = Celular()
-        self.aplicacion = Aplicacion()
+    def __init__(self, per):
+        self.per = per
+        self.mds = [Correo(), Celular(), whatsapp()]
 
-    def enviar_notificacion(self):
-        return self.aplicacion.enviar_notificacion()
+    def enviar_notificacion(self, msg):
+        for m in self.mds:
+            m.enviar_notificacion(self.per, msg)
 
-    def verificar_correo(self):
-        print(f"Verificando correo {self.correo}")

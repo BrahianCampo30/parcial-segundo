@@ -1,3 +1,4 @@
 class Aplicacion:
-    def enviar_notificacion(self):
-        print("Enviando notificación en la aplicación.")
+    def enviar_notificacion(self, per, msg):
+        print(f"Enviando notificación en la app a {per.nom}: {msg}")
+
